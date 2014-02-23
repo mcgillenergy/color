@@ -1,0 +1,21 @@
+{
+  "name": "mcgillenergy/color",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "AJ Ostrow",
+      "email": "alexander.ostrow@gmail.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+  },
+  "require-dev": {
+    "phpunit/phpunit": "3.7.x"
+  },
+  "autoload": {
+    "psr-4": {
+      "mcgillenergy\\color\\": "src/"
+    }
+  }
+}
