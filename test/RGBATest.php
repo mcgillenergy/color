@@ -25,4 +25,10 @@ class RGBATest extends \PHPUnit_Framework_TestCase
     $white = new RGBA('ffffff', 0.25);
     $this->assertEquals($white->toRGB()->hex(), 'ffffff');
   }
+
+  public function testToHSV()
+  {
+    $black = new RGBA(0x0, 0.5);
+    $this->assertEquals($black->toRGB()->toHSV(), $black->toHSV());
+  }
 }
