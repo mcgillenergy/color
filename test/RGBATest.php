@@ -14,10 +14,10 @@ class RGBATest extends \PHPUnit_Framework_TestCase
     $this->assertEquals($white->hex(), 'ffffffff');
   }
 
-  public function testValues()
+  public function testToArray()
   {
     $white = new RGBA(0xffffff, 0.5);
-    $this->assertEquals($white->values(), [ 255, 255, 255, 0.5 ]);
+    $this->assertEquals($white->toArray(), [ 255, 255, 255, 0.5 ]);
   }
 
   public function testToRGB()

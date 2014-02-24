@@ -26,9 +26,9 @@ class RGBA extends RGB
     return parent::hex() . dechex($alpha);
   }
 
-  public function values()
+  public function toArray()
   {
-    $values = parent::values();
+    $values = parent::toArray();
     array_push($values, $this->alpha);
     return $values;
   }

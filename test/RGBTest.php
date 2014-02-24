@@ -17,12 +17,19 @@ class RGBTest extends \PHPUnit_Framework_TestCase
   public function testValues()
   {
     $white = new RGB(0xffffff);
-    $this->assertEquals($white->values(), [ 255, 255, 255 ]);
+    $this->assertEquals($white->toArray(), [ 255, 255, 255 ]);
   }
 
   public function testToRGBA()
   {
     $white = new RGB('ffffff');
     $this->assertEquals($white->toRGBA()->hex(), 'ffffffff');
+  }
+
+  public function testToHSV()
+  {
+    $rgb = new RGB(100, 100, 50);
+    $hsv = new HSV(60.0, 0.5, 0.3921568627451);
+    $this->assertEquals($rgb->toHSV(), $hsv);
   }
 }

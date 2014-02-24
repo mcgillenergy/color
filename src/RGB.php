@@ -50,12 +50,9 @@ class RGB
     return dechex($this->rgb);
   }
 
-  public function values()
+  public function toArray()
   {
-    $red = $this->rgb >> 16;
-    $green = ($this->rgb >> 8) & 0xff;
-    $blue = $this->rgb & 0xff;
-    return [ $red, $green, $blue ];
+    return [ $this->red(), $this->green(), $this->blue() ];
   }
 
   public function toRGB()
@@ -66,5 +63,57 @@ class RGB
   public function toRGBA()
   {
     return new RGBA($this->rgb, 1.0);
+  }
+
+  public function red()
+  {
+    return $this->rgb >> 16;
+  }
+
+  public function green()
+  {
+    return ($this->rgb >> 8) & 0xff;
+  }
+
+  public function blue()
+  {
+    return $this->rgb & 0xff;
+  }
+
+  public function toHSV()
+  {
+    $r = $this->red() / 255.0;
+    $g = $this->green() / 255.0;
+    $b = $this->blue() / 255.0;
+
+    $min = min($r, $g, $b);
+    $max = max($r, $g, $b);
+    $delta = $max - $min;
+
+    $value = $max;
+
+    if ($max != 0)
+    {
+      $saturation = $delta / $max;
+    } 
+    else
+    {
+      return new HSV(0, 0, $value);
+    }
+    if ($r == $max)
+    {
+      $hue = ($g - $b) / $delta;
+    }
+    elseif ($g == $max)
+    {
+      $hue = 2 + ($b - $r) / $delta;
+    }
+    else
+    {
+      $hue = 4 + ($r - $g) / $delta;
+    }
+    $hue *= 60;
+    if ($hue < 0) $hue += 360;
+    return new HSV($hue, $saturation, $value);
   }
 }
