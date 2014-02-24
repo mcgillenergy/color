@@ -1,7 +1,7 @@
 <?php
 namespace mcgillenergy\color;
 
-class HSV
+class HSV implements Color
 {
   // $hue: 0.0 .. 360.0, $saturation: 0.0 .. 1.0, $value: 0.0 .. 1.0
   private $hue, $saturation, $value;
@@ -49,18 +49,21 @@ class HSV
       default:
         $rgb = [ $value, $p, $q ]; break;
     }
-    // trigger_error(var_dump($rgb));
-    $normalize = function ($pct)
-    {
-      return floor($pct * 0xff);
-    };
-    return new RGB(array_map($normalize, $rgb));
+    return new RGB(RGB::normalize($rgb));
   }
 
   public function toRGBA()
   {
-    //$rgb = $this->toRGB();
-    //trigger_error(var_dump($rgb));
     return $this->toRGB()->toRGBA();
+  }
+
+  public function toHSV()
+  {
+    return new HSV($this->hue, $this->saturation, $this->value);
+  }
+
+  public function toYIQ()
+  {
+    return $this->toRGB()->toYIQ();
   }
 }

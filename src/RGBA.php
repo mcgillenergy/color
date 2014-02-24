@@ -1,7 +1,7 @@
 <?php
 namespace mcgillenergy\color;
 
-class RGBA extends RGB
+class RGBA extends RGB implements Color
 {
   // 0.0 .. 1.0
   private $alpha;
@@ -40,6 +40,11 @@ class RGBA extends RGB
 
   public function toRGBA()
   {
-    return this;
+    return new RGBA(parent::red(), parent::blue(), parent::green(), $this->alpha);
+  }
+
+  public function toYIQ()
+  {
+    return $this->toRGB()->toYIQ();
   }
 }
