@@ -42,9 +42,4 @@ class RGBA extends RGB implements Color
   {
     return new RGBA(parent::red(), parent::blue(), parent::green(), $this->alpha);
   }
-
-  public function toYIQ()
-  {
-    return $this->toRGB()->toYIQ();
-  }
 }
