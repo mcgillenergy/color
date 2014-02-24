@@ -52,8 +52,15 @@ class HSV
     // trigger_error(var_dump($rgb));
     $normalize = function ($pct)
     {
-      return floor($pct * 255);
+      return floor($pct * 0xff);
     };
     return new RGB(array_map($normalize, $rgb));
+  }
+
+  public function toRGBA()
+  {
+    //$rgb = $this->toRGB();
+    //trigger_error(var_dump($rgb));
+    return $this->toRGB()->toRGBA();
   }
 }

@@ -32,7 +32,7 @@ class RGB
 
   private function fromHex($int)
   {
-    $this->rgb = $int;
+    $this->rgb = (int) $int;
   }
 
   private function fromString($hex)
@@ -47,7 +47,7 @@ class RGB
 
   public function hex()
   {
-    return dechex($this->rgb);
+    return sprintf("%06x", $this->rgb);
   }
 
   public function toArray()

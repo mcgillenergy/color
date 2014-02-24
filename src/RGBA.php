@@ -35,7 +35,7 @@ class RGBA extends RGB
 
   public function toRGB()
   {
-    return new RGB(parent::hex());
+    return new RGB(parent::red(), parent::blue(), parent::green());
   }
 
   public function toRGBA()

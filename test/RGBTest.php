@@ -8,7 +8,13 @@ class RGBTest extends \PHPUnit_Framework_TestCase
     $this->assertInstanceOf('mcgillenergy\\color\\RGB', new RGB(0x000000));
   }
 
-  public function testHex()
+  public function testHexBlack()
+  {
+    $black = new RGB(0, 0, 0);
+    $this->assertEquals($black->hex(), '000000');
+  }
+
+  public function testHexWhite()
   {
     $white = new RGB(255, 255, 255);
     $this->assertEquals($white->hex(), 'ffffff');
