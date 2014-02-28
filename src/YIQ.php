@@ -1,7 +1,7 @@
 <?php
 namespace mcgillenergy\color;
 
-class YIQ implements Color {
+class YIQ implements Convertible {
   // $y: 0.0 .. 1.0, $i: -0.5957 .. 0.5957, $q: -0.5226 .. 0.5226
   private $y, $i, $q;
 

@@ -1,7 +1,7 @@
 <?php
 namespace mcgillenergy\color;
 
-class RGBA extends RGB implements Color
+class RGBA extends RGB implements Convertible
 {
   // 0.0 .. 1.0
   private $alpha;

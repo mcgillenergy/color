@@ -1,7 +1,7 @@
 <?php
 namespace mcgillenergy\color;
 
-interface ColorTest 
+interface ConvertibleTest 
 {
   public function testConstructor();
   public function testToArray();

@@ -1,7 +1,7 @@
 <?php
 namespace mcgillenergy\color;
 
-class RGBATest extends \PHPUnit_Framework_TestCase implements ColorTest
+class RGBATest extends \PHPUnit_Framework_TestCase implements ConvertibleTest
 {
   public function testConstructor()
   {

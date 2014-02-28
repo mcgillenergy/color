@@ -1,7 +1,7 @@
 <?php
 namespace mcgillenergy\color;
 
-class RGB implements Color
+class RGB implements Convertible
 {
   // 0x000000 .. 0xffffff
   private $rgb;

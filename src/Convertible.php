@@ -1,7 +1,7 @@
 <?php
 namespace mcgillenergy\color;
 
-interface Color {
+interface Convertible {
   public function toArray();
   public function toRGB();
   public function toRGBA();

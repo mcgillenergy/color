@@ -1,7 +1,7 @@
 <?php
 namespace mcgillenergy\color;
 
-class HSV implements Color
+class HSV implements Convertible
 {
   // $hue: 0.0 .. 360.0, $saturation: 0.0 .. 1.0, $value: 0.0 .. 1.0
   private $hue, $saturation, $value;
