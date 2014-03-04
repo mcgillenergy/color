@@ -5,11 +5,19 @@ class YIQ implements Convertible {
   // $y: 0.0 .. 1.0, $i: -0.5957 .. 0.5957, $q: -0.5226 .. 0.5226
   private $y, $i, $q;
 
-  public function __construct($y, $i, $q)
+  public function __construct(/* args */)
   {
-    $this->y = $y;
-    $this->i = $i;
-    $this->q = $q;
+    $argc = func_num_args();
+    if ($argc == 3) {
+      $args = func_get_args();
+    } else if ($argc == 1) {
+      $args = func_get_arg(0);
+    } else {
+      trigger_error('Usage: `YIQ(0.0, 0.0, 0.0)`');
+    }
+    $this->y = $args[0];
+    $this->i = $args[1];
+    $this->q = $args[2];
   }
 
   public function toArray()

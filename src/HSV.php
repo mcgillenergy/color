@@ -6,11 +6,19 @@ class HSV implements Convertible
   // $hue: 0.0 .. 360.0, $saturation: 0.0 .. 1.0, $value: 0.0 .. 1.0
   private $hue, $saturation, $value;
 
-  public function __construct($h, $s, $v)
+  public function __construct(/* args */)
   {
-    $this->hue = $h;
-    $this->saturation = $s;
-    $this->value = $v;
+    $argc = func_num_args();
+    if ($argc == 3) {
+      $args = func_get_args();
+    } else if ($argc == 1) {
+      $args = func_get_arg(0);
+    } else {
+      trigger_error('Usage: `HSV(90, 0.0, 0.0)`');
+    }
+    $this->hue = $args[0];
+    $this->saturation = $args[1];
+    $this->value = $args[2];
   }
 
   public function toArray()

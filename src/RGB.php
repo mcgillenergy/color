@@ -24,7 +24,7 @@ class RGB implements Convertible
           $this->fromString($arg); break;
         case 'integer':
           $this->fromHex($arg); break;
-      }  
+      }
     } else {
       trigger_error('Usage: `RGB(255, 255, 255)` or `RGB(0xffffff)` or `RGB("ffffff")`');
     }
